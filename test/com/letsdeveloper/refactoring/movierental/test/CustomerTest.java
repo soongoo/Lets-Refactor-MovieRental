@@ -11,7 +11,7 @@ import com.letsdeveloper.refactoring.movierental.Rental;
 public class CustomerTest {
 
 	@Test
-	public void shouldProduceEmptyStatementWithoutRental() {
+	public void 렌탈하지_않으면_비어있는_명세서출력() {
 		Customer uut = new Customer("Bob");
 
 		String expected = "Rental Record for Bob\n"
@@ -21,9 +21,8 @@ public class CustomerTest {
 
 		assertEquals(expected, actual);
 	}
-	
 	@Test
-	public void shouldAddRegularMovieRentalToStatement() {
+	public void 일반영화_단기렌탈_명세서출력() {
 		Customer uut = new Customer("Alice");
 		uut.addRental(new Rental(new Movie("Spiderman", Movie.REGULAR), 1));
 
@@ -36,8 +35,9 @@ public class CustomerTest {
 		assertEquals(expected, actual);
 	}
 	
+	
 	@Test
-	public void shouldAddLongRegularMovieRentalToStatement() {
+	public void 일반영화_장기렌탈_명세서출력() {
 		Customer uut = new Customer("Alice");
 		uut.addRental(new Rental(new Movie("Batman", Movie.REGULAR), 3));
 
@@ -51,7 +51,7 @@ public class CustomerTest {
 	}
 	
 	@Test
-	public void shouldAddNewReleaseMovieRentalToStatement() {
+	public void 신간영화_단기렌탈_명세서출력() {
 		Customer uut = new Customer("Charly");
 		uut.addRental(new Rental(new Movie("X-Men", Movie.NEW_RELEASE), 1));
 
@@ -65,7 +65,7 @@ public class CustomerTest {
 	}
 	
 	@Test
-	public void shouldGetAdditionalFrequentRenterPointForLongNewReleaseMovieRental() {
+	public void 신간영화_장기렌탈_추가포인트적립_명세서출력() {
 		Customer uut = new Customer("Charly");
 		uut.addRental(new Rental(new Movie("X-Men 2", Movie.NEW_RELEASE), 3));
 
@@ -79,7 +79,7 @@ public class CustomerTest {
 	}
 	
 	@Test
-	public void shouldAddChildrensMovieRentalToStatement() {
+	public void 아동영화_단기렌탈_명세서출력() {
 		Customer uut = new Customer("Emma");
 		uut.addRental(new Rental(new Movie("Fantastic Four", Movie.CHILDRENS), 1));
 
@@ -93,7 +93,7 @@ public class CustomerTest {
 	}
 	
 	@Test
-	public void shouldAddLongChildrensMovieRentalToStatement() {
+	public void 아동영화_장기렌탈_명세서출력() {
 		Customer uut = new Customer("Emma");
 		uut.addRental(new Rental(new Movie("Lion King", Movie.CHILDRENS), 4));
 
@@ -107,7 +107,7 @@ public class CustomerTest {
 	}
 	
 	@Test
-	public void shouldAddMultipleRentalsToStatement() {
+	public void 복수장르_복수렌탈_명세서출력() {
 		Customer uut = new Customer("Hugo");
 		uut.addRental(new Rental(new Movie("Robin Hood", Movie.CHILDRENS), 3));
 		uut.addRental(new Rental(new Movie("V for Vendetta", Movie.REGULAR), 5));
